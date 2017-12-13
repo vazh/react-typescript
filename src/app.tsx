@@ -1,10 +1,28 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-type AppProps = { message: string };
-const App: React.SFC<AppProps> = ({ message }) => <div>{message}</div>
+class App extends React.Component<{
+    message: string
+}, {
+    count: number
+}> {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        }
+    }
+    render() {
+        return (
+            <div>
+                {this.props.message} 
+                {this.state.count}
+            </div>
+        );
+    }
+}
 
 ReactDOM.render(
-    <App message="Hello world again" />,
+    <App message="Hello again" />,
     document.getElementById('root')
 )
